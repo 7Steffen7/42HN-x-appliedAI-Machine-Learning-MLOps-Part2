@@ -1,0 +1,16 @@
+[project]
+name = "part2"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.115.12",
+    "jupyter>=1.1.1",
+    "kaggle>=1.7.4.5",
+    "mlflow>=2.22.0",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+    "streamlit>=1.45.0",
+    "xgboost>=3.0.0",
+]
