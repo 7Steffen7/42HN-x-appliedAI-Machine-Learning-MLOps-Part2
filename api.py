@@ -8,9 +8,9 @@ mlflow.set_tracking_uri("http://localhost:5000")
 app = FastAPI()
 
 model_name = 'spotify_prediction_testing'
-model_version = '2'
-# model = mlflow.xgboost.load_model(f"models:/{model_name}/{model_version}")
-model = mlflow.sklearn.load_model(f"models:/{model_name}/{model_version}")
+# model_version = '2'
+# model = mlflow.sklearn.load_model(f"models:/{model_name}/{model_version}")
+model = mlflow.sklearn.load_model(f"models:/{model_name}@champion")
 
 class InputData(BaseModel):
     danceability: float
