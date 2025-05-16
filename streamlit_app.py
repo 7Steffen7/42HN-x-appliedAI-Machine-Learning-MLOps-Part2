@@ -20,39 +20,6 @@ year = st.slider('Year', 2000, 2023, 2012)
 key = st.slider('Key', 0, 11, 5)
 mode = st.slider('Mode', 0, 1, 1)
 time_signature = st.slider('Time Signature', 0, 5, 4)
-# genres = ['acoustic', 'afrobeat', 'alt-rock', 'ambient', 'black-metal',
-#        'blues', 'breakbeat', 'cantopop', 'chicago-house', 'chill',
-#        'classical', 'club', 'comedy', 'country', 'dance', 'dancehall',
-#        'death-metal', 'deep-house', 'detroit-techno', 'disco',
-#        'drum-and-bass', 'dub', 'dubstep', 'edm', 'electro', 'electronic',
-#        'emo', 'folk', 'forro', 'french', 'funk', 'garage', 'german',
-#        'gospel', 'goth', 'grindcore', 'groove', 'guitar', 'hard-rock',
-#        'hardcore', 'hardstyle', 'heavy-metal', 'hip-hop', 'house',
-#        'indian', 'indie-pop', 'industrial', 'jazz', 'k-pop', 'metal',
-#        'metalcore', 'minimal-techno', 'new-age', 'opera', 'party',
-#        'piano', 'pop', 'pop-film', 'power-pop', 'progressive-house',
-#        'psych-rock', 'punk', 'punk-rock', 'rock', 'rock-n-roll',
-#        'romance', 'sad', 'salsa', 'samba', 'sertanejo', 'show-tunes',
-#        'singer-songwriter', 'ska', 'sleep', 'songwriter', 'soul',
-#        'spanish', 'swedish', 'tango', 'techno', 'trance', 'trip-hop']
-# default_genre_index = genres.index('dance')
-# genre = st.selectbox('Genre', genres, index=default_genre_index)
-
-# genre = st.selectbox('Genre', ['acoustic', 'afrobeat', 'alt-rock', 'ambient', 'black-metal',
-#        'blues', 'breakbeat', 'cantopop', 'chicago-house', 'chill',
-#        'classical', 'club', 'comedy', 'country', 'dance', 'dancehall',
-#        'death-metal', 'deep-house', 'detroit-techno', 'disco',
-#        'drum-and-bass', 'dub', 'dubstep', 'edm', 'electro', 'electronic',
-#        'emo', 'folk', 'forro', 'french', 'funk', 'garage', 'german',
-#        'gospel', 'goth', 'grindcore', 'groove', 'guitar', 'hard-rock',
-#        'hardcore', 'hardstyle', 'heavy-metal', 'hip-hop', 'house',
-#        'indian', 'indie-pop', 'industrial', 'jazz', 'k-pop', 'metal',
-#        'metalcore', 'minimal-techno', 'new-age', 'opera', 'party',
-#        'piano', 'pop', 'pop-film', 'power-pop', 'progressive-house',
-#        'psych-rock', 'punk', 'punk-rock', 'rock', 'rock-n-roll',
-#        'romance', 'sad', 'salsa', 'samba', 'sertanejo', 'show-tunes',
-#        'singer-songwriter', 'ska', 'sleep', 'songwriter', 'soul',
-#        'spanish', 'swedish', 'tango', 'techno', 'trance', 'trip-hop'])
 genre = st.selectbox(
     'Genre',
     options = ['acoustic', 'afrobeat', 'alt-rock', 'ambient', 'black-metal',
@@ -95,10 +62,10 @@ if st.button('Predict'):
 
     if response.status_code == 200:
         result = response.json()
+        # st.success(f'Predicted Popularity: {result}')
         if result['prediction'][0] == 0:
             st.error('Song is a miss')
         else:
             st.success('Song is a hit')
-        # st.success(f'Predicted Popularity: {result}')
     else:
         st.error('Prediction failed.')

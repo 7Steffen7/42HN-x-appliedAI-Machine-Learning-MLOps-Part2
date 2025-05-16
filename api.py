@@ -2,14 +2,17 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import pandas as pd
 import mlflow.sklearn
-import mlflow
 
 mlflow.set_tracking_uri("http://localhost:5000")
 app = FastAPI()
 
 model_name = 'spotify_prediction_testing'
+
+# Loading Model by version / version number must be manually updated
 # model_version = '2'
 # model = mlflow.sklearn.load_model(f"models:/{model_name}/{model_version}")
+
+# Loading Model by Alias / Always loads the current model with @champion alias / version doesn't matter
 model = mlflow.sklearn.load_model(f"models:/{model_name}@champion")
 
 class InputData(BaseModel):
